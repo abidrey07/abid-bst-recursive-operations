@@ -189,3 +189,6 @@ Submit your completed `bst-starter.cpp` file (you can rename it if you'd like).
 - Use the BST property in `contains()` to make the search efficient
 - Test frequently as you implement each function
 - Remember: recursion works by trusting that your function works on smaller inputs
+
+
+this is just a test to see if git cloned the repo correctly
