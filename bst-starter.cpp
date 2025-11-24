@@ -37,8 +37,11 @@ TreeNode* insert(TreeNode* node, int value) {
  * Recursive case: Current node (1) + left subtree + right subtree
  */
 int countNodes(TreeNode* node) {
-    // TODO: Implement this function
-    return 0;  // Replace this
+    int count = 0;
+    if (node != nullptr) {
+        count = 1 + countNodes(node->left) + countNodes(node->right);
+    }
+    return count;
 }
 
 /**
@@ -50,8 +53,8 @@ int countNodes(TreeNode* node) {
  * Hint: You can use max() from <algorithm>
  */
 int findHeight(TreeNode* node) {
-    // TODO: Implement this function
-    return -1;  // Replace this
+    if (node == nullptr) return -1;  // Replace this
+    return 1 + max(findHeight(node->left), findHeight(node->right));
 }
 
 /**
@@ -63,8 +66,10 @@ int findHeight(TreeNode* node) {
  * Recursive case: Use BST property to search left or right
  */
 bool contains(TreeNode* node, int target) {
-    // TODO: Implement this function
-    return false;  // Replace this
+    if (node == nullptr) return false;
+    else if (node->data == target) return true;
+    else if (node->data > target) return contains(node->left, target);
+    else if (node->data < target) return contains(node->right, target);
 }
 
 /**
@@ -76,8 +81,9 @@ bool contains(TreeNode* node, int target) {
  * Recursive case: Keep going left
  */
 int findMin(TreeNode* node) {
-    // TODO: Implement this function
-    return 0;  // Replace this
+    if (node->left == nullptr) {
+        return node->data;
+    } else return findMin(node->left);
 }
 
 // ============================================
